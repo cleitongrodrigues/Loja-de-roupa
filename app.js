@@ -15,6 +15,7 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+// Estabelecendo a conexao com o banco de dados
 const conexao = mysql.createConnection({
     host: "localhost",
     user: "root",
