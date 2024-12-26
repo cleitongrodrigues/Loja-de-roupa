@@ -24,7 +24,7 @@ conexao.connect((error) => {
         console.log("Erro ao conectar ao banco de dados")
     return;
     }
-    console.log("Conexao estabelicida com sucesso")   
+    console.log(`Conexao estabelicida com sucesso na porta ${port}`)   
 });
 
 // Rota principal
