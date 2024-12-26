@@ -41,18 +41,36 @@ conexao.connect((error) => {
 
 // Rota principal
 app.get("/", (req, res) => {
-    res.render('formulario');
+    // SQL
+    let sql = `select * from Produtos`
+
+    conexao.query(sql, (erro, retorno) => {
+        res.render('formulario', { produtos:retorno });
+    });
 });
 
 // Rota de cadastro
 app.post("/cadastrar", (req, res) => {
-    console.log(req.body);
-    console.log(req.files.imagem.name);
+    // obter os dados que serao utilizados para o cadastro
+    let nome = req.body.nome;
+    let valor = req.body.valor;
+    let imagem = req.files.imagem.name;
 
-    // Diz para qual lugar o arquivo sera enviado
-    req.files.imagem.mv(__dirname + '/imagens/' + req.files.imagem.name);
+    let sql = `insert into Produtos (Nome_Produto, Valor_Produto, Img_Produto) VALUES ('${nome}', ${valor}, '${imagem}')`;
+
+    conexao.query(sql, (erro, retorno) => {
+        if (erro) throw erro;
+
+        // caso ocorra o cadastro
+        req.files.imagem.mv(__dirname + '/imagens/' + req.files.imagem.name);
+        console.log(retorno);
+    });
+
+    // Retornar para a rota principal
+    res.redirect("/");
+
     // Evita loop infinito
-    res.end();
+    // res.end();
 })
 
 app.listen(port);
