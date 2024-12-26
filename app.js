@@ -4,6 +4,9 @@ const { engine } = require('express-handlebars');
 const app = express();
 const port = 3000;
 
+// Adicionar Bootstrap
+app.use("/bootstrap", express.static("./node_modules/bootstrap/dist"));
+
 // Configuração do Express-Handlebars
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
