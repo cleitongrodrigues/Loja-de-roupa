@@ -3,10 +3,10 @@
     <div class="container">
          <div class="row">
             <div class="col-6 offset-3">
-                <form>
-                    <input type="text" name="" class="form-control" id="" placeholder="Nome do Produto">
-                    <input type="number" name="" class="form-control" id="" placeholder="Valor do Produto">
-                    <input type="file" name="" class="form-control" id="">
+                <form action="/cadastrar" method="post" enctype="multipart/form-data">
+                    <input type="text" name="nome" class="form-control" id="" placeholder="Nome do Produto">
+                    <input type="number" name="valor" class="form-control" id="" placeholder="Valor do Produto">
+                    <input type="file" name="imagem" class="form-control" id="">
                     <input type="submit" class="btn btn-primary" value="cadastrar">
                 </form>
             </div>
