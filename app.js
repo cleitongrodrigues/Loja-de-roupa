@@ -55,7 +55,7 @@ app.post("/cadastrar", (req, res) => {
     let nome = req.body.nome;
     let valor = req.body.valor;
     let imagem = req.files.imagem.name;
-    
+
     // Comando SQL
     let sql = `insert into Produtos (Nome_Produto, Valor_Produto, Img_Produto) VALUES ('${nome}', ${valor}, '${imagem}')`;
 
@@ -76,3 +76,5 @@ app.post("/cadastrar", (req, res) => {
 })
 
 app.listen(port);
+
+// paramos aqui, https://www.youtube.com/watch?v=nG027HRjlgM&list=PLWXw8Gu52TRI5NJmexwA9qco33goFxbHK&index=17&ab_channel=RalfLima
