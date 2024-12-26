@@ -55,9 +55,10 @@ app.post("/cadastrar", (req, res) => {
     let nome = req.body.nome;
     let valor = req.body.valor;
     let imagem = req.files.imagem.name;
-
+    // Comando SQL
     let sql = `insert into Produtos (Nome_Produto, Valor_Produto, Img_Produto) VALUES ('${nome}', ${valor}, '${imagem}')`;
 
+    // Executa o camndo SQL
     conexao.query(sql, (erro, retorno) => {
         if (erro) throw erro;
 
