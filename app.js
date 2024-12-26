@@ -7,6 +7,9 @@ const port = 3000;
 // Adicionar Bootstrap
 app.use("/bootstrap", express.static("./node_modules/bootstrap/dist"));
 
+// Adicionando CSS
+app.use("/css", express.static("./css"));
+
 // Configuração do Express-Handlebars
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
